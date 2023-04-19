@@ -7,7 +7,6 @@ import javax.swing.table.DefaultTableModel;
 public class frmFormularioFiltro extends javax.swing.JFrame {
     public frmFormularioFiltro() {
         initComponents();
-        imprimir();
     }
 
     @SuppressWarnings("unchecked")
@@ -16,12 +15,12 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
 
         jButton_Regresar = new javax.swing.JButton();
         TITULO = new javax.swing.JLabel();
+        jButton_mostrar_contactos = new javax.swing.JButton();
         jButton_Limpiar = new javax.swing.JButton();
-        jButton_Buscar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton_Buscar_varones = new javax.swing.JButton();
+        jButton_buscar_mujeres = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_datos = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,6 +36,14 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         TITULO.setText("FILTRO DE CONTACTOS");
         TITULO.setToolTipText("");
 
+        jButton_mostrar_contactos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_mostrar_contactos.setText("Mostrar tosdos los contactos");
+        jButton_mostrar_contactos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_mostrar_contactosActionPerformed(evt);
+            }
+        });
+
         jButton_Limpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton_Limpiar.setText("Limpiar");
         jButton_Limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -45,21 +52,21 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
             }
         });
 
-        jButton_Buscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton_Buscar.setText("Mostrar contactos varones");
-        jButton_Buscar.setToolTipText("");
-        jButton_Buscar.setActionCommand("");
-        jButton_Buscar.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Buscar_varones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_Buscar_varones.setText("Mostrar contactos varones");
+        jButton_Buscar_varones.setToolTipText("");
+        jButton_Buscar_varones.setActionCommand("");
+        jButton_Buscar_varones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_BuscarActionPerformed(evt);
+                jButton_Buscar_varonesActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Mostrar contactos mujeres");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_buscar_mujeres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton_buscar_mujeres.setText("Mostrar contactos mujeres");
+        jButton_buscar_mujeres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_buscar_mujeresActionPerformed(evt);
             }
         });
 
@@ -79,14 +86,6 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_datos);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Mostrar tosdos los contactos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,11 +103,11 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                         .addContainerGap(53, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(jButton_mostrar_contactos)
                                 .addGap(44, 44, 44)
-                                .addComponent(jButton_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton_Buscar_varones, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton_buscar_mujeres, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton_Limpiar)
@@ -123,9 +122,9 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                 .addComponent(TITULO)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton_Buscar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_mostrar_contactos)
+                    .addComponent(jButton_Buscar_varones)
+                    .addComponent(jButton_buscar_mujeres))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -138,9 +137,9 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuscarActionPerformed
+    private void jButton_Buscar_varonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Buscar_varonesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_BuscarActionPerformed
+    }//GEN-LAST:event_jButton_Buscar_varonesActionPerformed
 
     private void jButton_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegresarActionPerformed
         System.exit(0);
@@ -157,13 +156,13 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_buscar_mujeresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscar_mujeresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_buscar_mujeresActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton_mostrar_contactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrar_contactosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton_mostrar_contactosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,11 +178,11 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton_Buscar;
+    private javax.swing.JButton jButton_Buscar_varones;
     private javax.swing.JButton jButton_Limpiar;
     private javax.swing.JButton jButton_Regresar;
+    private javax.swing.JButton jButton_buscar_mujeres;
+    private javax.swing.JButton jButton_mostrar_contactos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_datos;
     // End of variables declaration//GEN-END:variables
