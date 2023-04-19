@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package agendagrupal;
+package Formularios;
 
 /**
  *
@@ -84,6 +84,11 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        //Instanciar formulario a llamar
+        frmRegistrar verformularioRegistrar = new frmRegistrar(); 
+ 
+        //Hacer visible el formulario
+        verformularioRegistrar.setVisible(true); 
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
