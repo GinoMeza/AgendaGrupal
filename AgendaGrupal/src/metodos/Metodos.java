@@ -1,8 +1,18 @@
 package metodos;
 
-import alumno.Alumno;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import java.util.Formatter;
+import java.util.Properties;
+import java.util.StringTokenizer;
+import javax.swing.table.DefaultTableModel;
 
 public class Metodos {
     
