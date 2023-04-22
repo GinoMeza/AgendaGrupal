@@ -1,18 +1,25 @@
 
 package agendagrupal;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 
 
 public class frmFormularioFiltro extends javax.swing.JFrame {
     public frmFormularioFiltro() {
         initComponents();
     }
+    TableRowSorter<DefaultTableModel> sorter;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -22,10 +29,9 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         TITULO = new javax.swing.JLabel();
         jButton_mostrar_contactos = new javax.swing.JButton();
         jButton_Limpiar = new javax.swing.JButton();
-        jButton_Buscar_varones = new javax.swing.JButton();
-        jButton_buscar_mujeres = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_datos = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,39 +63,24 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
             }
         });
 
-        jButton_Buscar_varones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton_Buscar_varones.setText("Mostrar contactos varones");
-        jButton_Buscar_varones.setToolTipText("");
-        jButton_Buscar_varones.setActionCommand("");
-        jButton_Buscar_varones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Buscar_varonesActionPerformed(evt);
-            }
-        });
-
-        jButton_buscar_mujeres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton_buscar_mujeres.setText("Mostrar contactos mujeres");
-        jButton_buscar_mujeres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_buscar_mujeresActionPerformed(evt);
-            }
-        });
-
         jTable_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Genero", "Nombre", "Apellido Paterno", "Apellido Materno", "correo", "Fecha neacimiento", "dirección", "telefono"
             }
         ));
         jScrollPane1.setViewportView(jTable_datos);
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,11 +100,9 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton_mostrar_contactos)
-                                .addGap(44, 44, 44)
-                                .addComponent(jButton_Buscar_varones, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(jButton_buscar_mujeres, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(76, 76, 76))
+                                .addGap(267, 267, 267)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton_Limpiar)
                                 .addGap(26, 26, 26)
@@ -128,8 +117,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_mostrar_contactos)
-                    .addComponent(jButton_Buscar_varones)
-                    .addComponent(jButton_buscar_mujeres))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -141,10 +129,6 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton_Buscar_varonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Buscar_varonesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_Buscar_varonesActionPerformed
 
     private void jButton_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegresarActionPerformed
         System.exit(0);
@@ -161,13 +145,24 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
 
-    private void jButton_buscar_mujeresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buscar_mujeresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_buscar_mujeresActionPerformed
-
     private void jButton_mostrar_contactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrar_contactosActionPerformed
         jTable_datos.setModel(listaContactos());
     }//GEN-LAST:event_jButton_mostrar_contactosActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        filtrar();
+    }//GEN-LAST:event_jTextField1KeyReleased
+    
+    private void filtrar(){
+    try{
+        tabla_Filtro();
+        sorter.setRowFilter(RowFilter.regexFilter(jTextField1.getText(), 0));
+    }catch(Exception e){}
+    }
 
     /**
      * @param args the command line arguments
@@ -181,8 +176,10 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         });
     }
     
+    //FUNCIÓN QUE MUESTRA LOS DATOS DE UN .TXT EN UN JTABLE
     public DefaultTableModel listaContactos(){
-	Vector cabeceras = new Vector();
+	Vector cabeceras = new Vector();//crea un array para almacenar los datos que japaremos del .txt
+        //usamos addElement para agregar elementos en el array
 	cabeceras.addElement("GENERO");
 	cabeceras.addElement("NOMBRE");
 	cabeceras.addElement("APELLIDO PATERNO");
@@ -192,14 +189,14 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         cabeceras.addElement("DIRECCIÓN");
         cabeceras.addElement("TELEFONO");
 	
-
+        //creamos una variable en la que se almacenaran los datos de la tabla
 	DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
-	try{
-		FileReader fr = new FileReader("nombre del archivo .txt");
-		BufferedReader br = new BufferedReader(fr);
+	try{//captura de posibles errores
+		FileReader fr = new FileReader("hola.txt");//abre el .txt
+		BufferedReader br = new BufferedReader(fr);//lee los datos de el .txt
 		String d;
-		while((d= br.readLine())!=null){
-			StringTokenizer dato = new StringTokenizer(d,"|");
+		while((d= br.readLine())!=null){//la lectura continua hasta que se llegue al final del documento .txt
+			StringTokenizer dato = new StringTokenizer(d,"|");//modo de diferenciar la separación de datos
 			Vector x = new Vector();
 			while(dato.hasMoreTokens()){
 				x.addElement(dato.nextToken());
@@ -207,20 +204,57 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
 			mdlTabla.addRow(x);
 		}
 	} catch(Exception e){
-		JOptionPane.showMessageDialog(null, e);
+		JOptionPane.showMessageDialog(null, "fallo en la apertura del archivo de contactos");
+	}
+	return mdlTabla;
+    }
+    
+    
+    private DefaultTableModel tabla_Filtro(){
+	Vector cabeceras = new Vector();//crea un array para almacenar los datos que japaremos del .txt
+        //usamos addElement para agregar elementos en el array
+	cabeceras.addElement("GENERO");
+	cabeceras.addElement("NOMBRE");
+	cabeceras.addElement("APELLIDO PATERNO");
+        cabeceras.addElement("APELLIDO MATERNO");
+        cabeceras.addElement("CORREO");
+        cabeceras.addElement("FECHA NACIMIENTO");
+        cabeceras.addElement("DIRECCIÓN");
+        cabeceras.addElement("TELEFONO");
+	
+        //creamos una variable en la que se almacenaran los datos de la tabla
+	DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
+        
+	try{//captura de posibles errores
+		FileReader fr = new FileReader("hola.txt");//abre el .txt
+		BufferedReader br = new BufferedReader(fr);//lee los datos de el .txt
+		String d;
+		while((d= br.readLine())!=null){//la lectura continua hasta que se llegue al final del documento .txt
+			StringTokenizer dato = new StringTokenizer(d,"|");//modo de diferenciar la separación de datos
+			Vector x = new Vector();
+			while(dato.hasMoreTokens()){
+				x.addElement(dato.nextToken());
+			}
+			mdlTabla.addRow(x);
+		}
+                jTable_datos.setAutoCreateRowSorter(true);
+                sorter = new TableRowSorter<>(mdlTabla);
+                jTable_datos.setRowSorter(sorter);
+	} catch(Exception e){
+		JOptionPane.showMessageDialog(null, "fallo en la apertura del archivo de contactos");
 	}
 	return mdlTabla;
     }
 
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO;
-    private javax.swing.JButton jButton_Buscar_varones;
     private javax.swing.JButton jButton_Limpiar;
     private javax.swing.JButton jButton_Regresar;
-    private javax.swing.JButton jButton_buscar_mujeres;
     private javax.swing.JButton jButton_mostrar_contactos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_datos;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
