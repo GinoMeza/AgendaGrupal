@@ -32,6 +32,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_datos = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +83,8 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Ingrese el genero que desea filtrar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,23 +94,25 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(TITULO)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(53, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton_mostrar_contactos)
-                                .addGap(267, 267, 267)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84))
+                                .addGap(96, 96, 96)
+                                .addComponent(jLabel1)
+                                .addGap(57, 57, 57)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(196, 196, 196))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton_Limpiar)
                                 .addGap(26, 26, 26)
                                 .addComponent(jButton_Regresar)))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(354, 354, 354)
+                .addComponent(TITULO)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +122,8 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_mostrar_contactos)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -137,12 +143,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_RegresarActionPerformed
 
     private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
-        DefaultTableModel temp = (DefaultTableModel) jTable_datos.getModel();
-        int filas = jTable_datos.getRowCount();
-
-        for (int a = 0; filas > a; a++) {
-            temp.removeRow(0);
-        }
+        Limpiesa();
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
 
     private void jButton_mostrar_contactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrar_contactosActionPerformed
@@ -156,11 +157,19 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         filtrar();
     }//GEN-LAST:event_jTextField1KeyReleased
-    
+    private void Limpiesa(){
+        DefaultTableModel temp = (DefaultTableModel) jTable_datos.getModel();
+        int filas = jTable_datos.getRowCount();
+
+        for (int a = 0; filas > a; a++) {
+            temp.removeRow(0);
+        }
+    }
     private void filtrar(){
     try{
+        
         tabla_Filtro();
-        sorter.setRowFilter(RowFilter.regexFilter(jTextField1.getText(), 0));
+        sorter.setRowFilter(RowFilter.regexFilter(jTextField1.getText(), 0));        
     }catch(Exception e){}
     }
 
@@ -177,7 +186,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }
     
     //FUNCIÓN QUE MUESTRA LOS DATOS DE UN .TXT EN UN JTABLE
-    public DefaultTableModel listaContactos(){
+    public DefaultTableModel listaContactos(){//este modulo se encarga de mostrartodos los datos de manera general
 	Vector cabeceras = new Vector();//crea un array para almacenar los datos que japaremos del .txt
         //usamos addElement para agregar elementos en el array
 	cabeceras.addElement("GENERO");
@@ -210,7 +219,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }
     
     
-    private DefaultTableModel tabla_Filtro(){
+    private DefaultTableModel tabla_Filtro(){//este modulo a diferencia del anterior esta para usoexclusivo de el filtrado no eliminar
 	Vector cabeceras = new Vector();//crea un array para almacenar los datos que japaremos del .txt
         //usamos addElement para agregar elementos en el array
 	cabeceras.addElement("GENERO");
@@ -253,6 +262,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Limpiar;
     private javax.swing.JButton jButton_Regresar;
     private javax.swing.JButton jButton_mostrar_contactos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_datos;
     private javax.swing.JTextField jTextField1;
