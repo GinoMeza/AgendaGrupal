@@ -3,8 +3,8 @@ M|josue|ssss|ssss|ssss|ssss|sss|ssss
 M|josue|ssss|ssss|ssss|ssss|sss|ssss
 F|josue|ssss|ssss|ssss|ssss|sss|ssss
 F|josue|ssss|ssss|ssss|ssss|sss|ssss
-m|josue|ssss|ssss|ssss|ssss|sss|ssss
-m|josue|ssss|ssss|ssss|ssss|sss|ssss
-m|josue|uuuu|llll|ññññ|mmmm|ppp|ppp
-m|josue|ssss|ssss|ssss|ssss|sss|ssss
-f|josue|ssss|ssss|ssss|ssss|sss|ssss
+M|josue|ssss|ssss|ssss|ssss|sss|ssss
+F|josue|ssss|ssss|ssss|ssss|sss|ssss
+F|josue|uuuu|llll|ññññ|mmmm|ppp|ppp
+M|josue|ssss|ssss|ssss|ssss|sss|ssss
+F|josue|ssss|ssss|ssss|ssss|sss|ssss
