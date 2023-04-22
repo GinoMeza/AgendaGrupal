@@ -1,6 +1,11 @@
 
 package agendagrupal;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.StringTokenizer;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -161,7 +166,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_buscar_mujeresActionPerformed
 
     private void jButton_mostrar_contactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrar_contactosActionPerformed
-        // TODO add your handling code here:
+        jTable_datos.setModel(listaContactos());
     }//GEN-LAST:event_jButton_mostrar_contactosActionPerformed
 
     /**
@@ -169,10 +174,42 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmFormularioFiltro().setVisible(true);
             }
         });
+    }
+    
+    public DefaultTableModel listaContactos(){
+	Vector cabeceras = new Vector();
+	cabeceras.addElement("GENERO");
+	cabeceras.addElement("NOMBRE");
+	cabeceras.addElement("APELLIDO PATERNO");
+        cabeceras.addElement("APELLIDO MATERNO");
+        cabeceras.addElement("CORREO");
+        cabeceras.addElement("FECHA NACIMIENTO");
+        cabeceras.addElement("DIRECCIÓN");
+        cabeceras.addElement("TELEFONO");
+	
+
+	DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
+	try{
+		FileReader fr = new FileReader("nombre del archivo .txt");
+		BufferedReader br = new BufferedReader(fr);
+		String d;
+		while((d= br.readLine())!=null){
+			StringTokenizer dato = new StringTokenizer(d,"|");
+			Vector x = new Vector();
+			while(dato.hasMoreTokens()){
+				x.addElement(dato.nextToken());
+			}
+			mdlTabla.addRow(x);
+		}
+	} catch(Exception e){
+		JOptionPane.showMessageDialog(null, e);
+	}
+	return mdlTabla;
     }
 
     
