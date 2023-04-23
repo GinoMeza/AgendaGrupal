@@ -34,7 +34,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton_Regresar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton_Regresar.setText("regresar");
+        jButton_Regresar.setText("Salir");
         jButton_Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_RegresarActionPerformed(evt);
