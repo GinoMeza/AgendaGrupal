@@ -1,6 +1,7 @@
 package Formularios;
 
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class frmRegistrar extends javax.swing.JFrame {
 
@@ -29,9 +30,9 @@ public class frmRegistrar extends javax.swing.JFrame {
         txtCorreoElectronico = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        opcMasculino = new javax.swing.JRadioButton();
+        opcFemenino = new javax.swing.JRadioButton();
         txtFechaNacimiento = new com.toedter.calendar.JDateChooser();
-        btnMasculino = new javax.swing.JRadioButton();
-        btnFemenino = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,16 +72,16 @@ public class frmRegistrar extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(btnMasculino);
-        btnMasculino.setText("Masculino");
-        btnMasculino.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(opcMasculino);
+        opcMasculino.setText("Masculino");
+        opcMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMasculinoActionPerformed(evt);
+                opcMasculinoActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(btnFemenino);
-        btnFemenino.setText("Femenino");
+        buttonGroup1.add(opcFemenino);
+        opcFemenino.setText("Femenino");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,20 +103,19 @@ public class frmRegistrar extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(btnMasculino)
+                                .addComponent(opcMasculino)
                                 .addGap(50, 50, 50)
-                                .addComponent(btnFemenino))))
+                                .addComponent(opcFemenino))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(btnRegistrar)
@@ -150,15 +150,15 @@ public class frmRegistrar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(btnMasculino)
-                    .addComponent(btnFemenino))
+                    .addComponent(opcMasculino)
+                    .addComponent(opcFemenino))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
@@ -197,8 +197,21 @@ public class frmRegistrar extends javax.swing.JFrame {
         SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");
         String FechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());
         
+        //Obteniendo el sexo marcado
+        if(opcMasculino.isSelected()){
+            boolean Sexo = true;        // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
+        }else{
+            if(opcFemenino.isSelected()){
+                boolean Sexo = false;       // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
+            }else{
+                JOptionPane.showMessageDialog(this,"Selección de sexo invalida.");
+            }
+        }
+        
         // Imprimir fecha de nacimiento de prueba
         //System.out.println("La fecha de nacimiento es: "+FechaNacimiento);
+        
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -210,9 +223,9 @@ public class frmRegistrar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasculinoActionPerformed
+    private void opcMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcMasculinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMasculinoActionPerformed
+    }//GEN-LAST:event_opcMasculinoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,8 +263,6 @@ public class frmRegistrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton btnFemenino;
-    private javax.swing.JRadioButton btnMasculino;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -263,6 +274,8 @@ public class frmRegistrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JRadioButton opcFemenino;
+    private javax.swing.JRadioButton opcMasculino;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
     private javax.swing.JTextField txtCorreoElectronico;
