@@ -201,7 +201,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingrese el genero que desea filtrar"/>
+        <Property name="text" type="java.lang.String" value="Ingrese el g&#xe9;nero que desea filtrar"/>
       </Properties>
     </Component>
   </SubComponents>
