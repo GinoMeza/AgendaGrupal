@@ -1,11 +1,8 @@
 
 package agendagrupal;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -147,7 +144,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_LimpiarActionPerformed
 
     private void jButton_mostrar_contactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mostrar_contactosActionPerformed
-        jTable_datos.setModel(listaContactos());
+        jTable_datos.setModel(listaContactos());//muestra todos los contactos 
     }//GEN-LAST:event_jButton_mostrar_contactosActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
@@ -155,9 +152,9 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
-        filtrar();
+        filtrar();//filtra los contactos por genero poro solo si el boton de mostrar todos los contactos se preciono anteriormente
     }//GEN-LAST:event_jTextField1KeyReleased
-    private void Limpiesa(){
+    private void Limpiesa(){//se encarga de borrar los datos que aparecen en la tabla pero no los datos guardados
         DefaultTableModel temp = (DefaultTableModel) jTable_datos.getModel();
         int filas = jTable_datos.getRowCount();
 
@@ -165,7 +162,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
             temp.removeRow(0);
         }
     }
-    private void filtrar(){
+    private void filtrar(){//se encarga de filtrar los contactos basandose en el genero del contacto
     try{
         
         tabla_Filtro();
@@ -189,19 +186,19 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     public DefaultTableModel listaContactos(){//este modulo se encarga de mostrartodos los datos de manera general
 	Vector cabeceras = new Vector();//crea un array para almacenar los datos que japaremos del .txt
         //usamos addElement para agregar elementos en el array
-	cabeceras.addElement("GENERO");
-	cabeceras.addElement("NOMBRE");
-	cabeceras.addElement("APELLIDO PATERNO");
-        cabeceras.addElement("APELLIDO MATERNO");
-        cabeceras.addElement("CORREO");
-        cabeceras.addElement("FECHA NACIMIENTO");
-        cabeceras.addElement("DIRECCIÓN");
-        cabeceras.addElement("TELEFONO");
+	cabeceras.addElement("Género");
+	cabeceras.addElement("Nombre");
+	cabeceras.addElement("Apellido paterno");
+        cabeceras.addElement("Apellido materno");
+        cabeceras.addElement("Correo");
+        cabeceras.addElement("Fecha de nacimiento");
+        cabeceras.addElement("Dirección");
+        cabeceras.addElement("Teléfono");
 	
         //creamos una variable en la que se almacenaran los datos de la tabla
 	DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
 	try{//captura de posibles errores
-		FileReader fr = new FileReader("hola.txt");//abre el .txt
+		FileReader fr = new FileReader("datos.txt");//abre el .txt
 		BufferedReader br = new BufferedReader(fr);//lee los datos de el .txt
 		String d;
 		while((d= br.readLine())!=null){//la lectura continua hasta que se llegue al final del documento .txt
@@ -235,7 +232,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
 	DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
         
 	try{//captura de posibles errores
-		FileReader fr = new FileReader("hola.txt");//abre el .txt
+		FileReader fr = new FileReader("datos.txt");//abre el .txt
 		BufferedReader br = new BufferedReader(fr);//lee los datos de el .txt
 		String d;
 		while((d= br.readLine())!=null){//la lectura continua hasta que se llegue al final del documento .txt
