@@ -57,6 +57,29 @@ public class frmRegistrar extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
+
+        txtApellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoPaternoKeyTyped(evt);
+            }
+        });
+
+        txtApellidoMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoMaternoKeyTyped(evt);
+            }
+        });
+
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyTyped(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -175,27 +198,29 @@ public class frmRegistrar extends javax.swing.JFrame {
         String b = jTextField1. getText();
         */
 
+        String Nombre,ApellidoPaterno,ApellidoMaterno,Correo,Direccion,Telefono,FechaNacimiento;
+        
         //Obtener nombre del campo de texto
-        String Nombre = txtNombre.getText();
+        Nombre = txtNombre.getText();
         
         //Obtener apellido paterno de campo de texto
-        String ApellidoPaterno = txtApellidoPaterno.getText();
+        ApellidoPaterno = txtApellidoPaterno.getText();
         
         //Obtener apellido materno de campo de texto
-        String ApellidoMaterno = txtApellidoMaterno.getText();
+        ApellidoMaterno = txtApellidoMaterno.getText();
         
         //Obtener telefono de campo de texto
-        String Telefono = txtTelefono.getText();
+        Telefono = txtTelefono.getText();
         
         //Obtener direccion de campo de texto
-        String Direccion = txtDireccion.getText();
+        Direccion = txtDireccion.getText();
         
         //Obtener correo electronico de campo de texto
-        String Correo = txtCorreoElectronico.getText();
+        Correo = txtCorreoElectronico.getText();
         
         //Obteniendo fecha de nacimiento
         SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");
-        String FechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());
+        FechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());
         
         //Obteniendo el sexo marcado
         if(opcMasculino.isSelected()){
@@ -216,6 +241,7 @@ public class frmRegistrar extends javax.swing.JFrame {
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -226,6 +252,58 @@ public class frmRegistrar extends javax.swing.JFrame {
     private void opcMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcMasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opcMasculinoActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        
+        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
+        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
+        boolean Espacio = key == 32;
+        
+        if(!(Minusculas || Mayusculas || Espacio)){
+            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPaternoKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        
+        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
+        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
+        boolean Espacio = key == 32;
+        
+        if(!(Minusculas || Mayusculas || Espacio)){
+            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtApellidoPaternoKeyTyped
+
+    private void txtApellidoMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoMaternoKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        
+        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
+        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
+        boolean Espacio = key == 32;
+        
+        if(!(Minusculas || Mayusculas || Espacio)){
+            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtApellidoMaternoKeyTyped
+
+    private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        
+        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
+        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
+        boolean Espacio = key == 32;
+        
+        if(!(Minusculas || Mayusculas || Espacio)){
+            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtDireccionKeyTyped
 
     /**
      * @param args the command line arguments
