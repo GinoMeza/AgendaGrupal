@@ -254,16 +254,17 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_opcMasculinoActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        /*int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
         
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
-        boolean Espacio = key == 32;
+        boolean Espacio = key == 32;                        //Declaración de espacio de acuerdo al ascii
+        boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
         
         if(!(Minusculas || Mayusculas || Espacio)){
             //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
-        }
+        }*/
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPaternoKeyTyped
@@ -298,6 +299,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
         boolean Espacio = key == 32;
+        
         
         if(!(Minusculas || Mayusculas || Espacio)){
             //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
