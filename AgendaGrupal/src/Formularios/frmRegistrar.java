@@ -254,7 +254,7 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_opcMasculinoActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        /*int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
         
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
@@ -264,7 +264,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         if(!(Minusculas || Mayusculas || Espacio)){
             //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
-        }*/
+        }
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidoPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPaternoKeyTyped
@@ -294,7 +294,7 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApellidoMaternoKeyTyped
 
     private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
-        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        /*int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
         
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
@@ -304,7 +304,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         if(!(Minusculas || Mayusculas || Espacio)){
             //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
-        }
+        }*/
     }//GEN-LAST:event_txtDireccionKeyTyped
 
     /**
