@@ -15,6 +15,20 @@ public class Archivo {
 
     Vector vPrincipal = new Vector();
     
+    File datos;
+    public void crearArchivo() {
+        datos = new File("datos.txt");
+
+        try {
+            if (datos.createNewFile()) { //crea un nuevo archivo, si ya existe no hace nada
+                JOptionPane.showMessageDialog(null, "Archivo creado");
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ha sucedido un error" + ex);
+        }
+
+    }
+    
     //Procedimientop para guardar datos en 1 vector
     public void guardar(Contacto contacto){
         vPrincipal.addElement(contacto);
@@ -38,25 +52,5 @@ public class Archivo {
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
-    }
-    
-    
-    File datos;
-
-    public void crearArchivo() {
-        datos = new File("datos.txt");
-
-        try {
-            if (datos.createNewFile()) { //crea un nuevo archivo, si ya existe no hace nada
-                JOptionPane.showMessageDialog(null, "Archivo creado");
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Ha sucedido un error" + ex);
-        }
-
-    }
-
-    
-
-   
+    }    
 }

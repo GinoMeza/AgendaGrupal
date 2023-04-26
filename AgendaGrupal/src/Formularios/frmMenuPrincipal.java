@@ -2,8 +2,6 @@ package Formularios;
 
 //Ventana principal del Programa
 
-import javax.swing.ImageIcon;
-
 public class frmMenuPrincipal extends javax.swing.JFrame {
     
     frmRegistrar registrar = new frmRegistrar();
@@ -57,6 +55,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 240, 100));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/book-agenda-table-notes.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 554, 397));
 
         pack();
