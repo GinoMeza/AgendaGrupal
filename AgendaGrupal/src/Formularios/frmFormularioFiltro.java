@@ -138,7 +138,8 @@ DefaultTableModel model;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegresarActionPerformed
-        dispose();//Cerramos la ventana
+        this.setVisible(false);
+        new frmMenuPrincipal().setVisible(true);
     }//GEN-LAST:event_jButton_RegresarActionPerformed
 
     private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
