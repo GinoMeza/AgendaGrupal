@@ -7,6 +7,9 @@ import Persistencia.Archivo;
 
 public class frmRegistrar extends javax.swing.JFrame {
 
+    Archivo archivo = new Archivo();
+    Contacto contacto = new Contacto();
+    
     public frmRegistrar() {
         initComponents();
     }
@@ -188,38 +191,28 @@ public class frmRegistrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        Archivo archivo = new Archivo();
-        Contacto contacto = new Contacto();
-
-        //Obtener nombre del campo de texto
-        contacto.setGenero(txtGenero.getText());
-        contacto.setNombre(txtNombre.getText());
-        contacto.setApellidoPaterno(txtApellidoPaterno.getText());
-        contacto.setApellidoMaterno(txtApellidoMaterno.getText());
-        contacto.setTelefono(txtTelefono.getText());
-        contacto.setDireccion(txtDireccion.getText());
-        contacto.setCorreo(txtCorreoElectronico.getText());
-        contacto.setFechaNacimiento(txtFechaNacimiento.getText());
         
-        //verifico si quedo algun campo vacio y pido que lo complete
-        if( contacto.getNombre().equals("") || contacto.getApellidoPaterno().equals("") || contacto.getTelefono().equals("") || contacto.getDireccion().equals("") ||
-                contacto.getGenero().equals("") || contacto.getApellidoMaterno().equals("") || contacto.getCorreo().equals("") || contacto.getFechaNacimiento().equals("")){
-          JOptionPane.showMessageDialog(null, "Todos los campos deben contener datos");
-
-        }else { //guardo el registro y pongo en blanco los txtbox
-           archivo.crearArchivo();
-           archivo.agregarRegistro(contacto);
-           JOptionPane.showMessageDialog(null, "Contacto agregado");
-           txtGenero.setText("");
-           txtNombre.setText("");
-           txtApellidoPaterno.setText("");
-           txtApellidoMaterno.setText("");
-           txtTelefono.setText("");
-           txtFechaNacimiento.setText("");
-           txtDireccion.setText("");
-           txtCorreoElectronico.setText("");
-           
-          }
+        String genero = txtGenero.getText();
+        String nombre = txtNombre.getText();
+        String apellidopaterno = txtApellidoPaterno.getText();
+        String apellidomaterno = txtApellidoMaterno.getText();
+        String correo = txtCorreoElectronico.getText();
+        String fechanacimiento = txtFechaNacimiento.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        
+        contacto.setGenero(genero);
+        contacto.setNombre(nombre);
+        contacto.setApellidoPaterno(apellidopaterno);
+        contacto.setApellidoMaterno(apellidomaterno);
+        contacto.setCorreo(correo);
+        contacto.setFechaNacimiento(fechanacimiento);
+        contacto.setGenero(direccion);
+        contacto.setTelefono(telefono);
+        
+        archivo.guardar(contacto);
+        archivo.guardarArchivo(contacto);
+        
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -242,7 +235,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
         
         if(!(Minusculas || Mayusculas || Espacio)){
-            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
         }
     }//GEN-LAST:event_txtNombreKeyTyped
@@ -298,37 +291,6 @@ public class frmRegistrar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmRegistrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmRegistrar().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

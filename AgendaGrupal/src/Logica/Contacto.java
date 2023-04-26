@@ -2,30 +2,29 @@ package Logica;
 
 public class Contacto {
 
+    String Genero;
     String Nombre;
     String ApellidoPaterno;
     String ApellidoMaterno;
-    String Genero;
     String Correo;
     String FechaNacimiento;
     String Direccion;
     String Telefono;
 
+    public Contacto(){
+    }
     
-    public Contacto(String Nombre, String ApellidoPaterno, String ApellidoMaterno, String Genero, String Correo, String FechaNacimiento, String Direccion, String Telefono) {
+    public Contacto(String Genero,String Nombre,String ApellidoPaterno,String ApellidoMaterno,String Correo, String FechaNacimiento, String Direccion, String Telefono) {
+        this.Genero = Genero;
         this.Nombre = Nombre;
         this.ApellidoPaterno = ApellidoPaterno;
         this.ApellidoMaterno = ApellidoMaterno;
-        this.Genero = Genero;
         this.Correo = Correo;
         this.FechaNacimiento = FechaNacimiento;
         this.Direccion = Direccion;
         this.Telefono = Telefono;
     }
 
-    public Contacto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public String getNombre() {
         return Nombre;
