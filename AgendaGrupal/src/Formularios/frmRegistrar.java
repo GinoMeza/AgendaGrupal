@@ -243,7 +243,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
 
         if(!(Minusculas || Mayusculas || Espacio)){
-            JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
+            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
         }
     }//GEN-LAST:event_txtNombreKeyTyped
