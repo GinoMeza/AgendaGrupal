@@ -229,8 +229,8 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // Cerramos la ventana
-        dispose();
+        this.setVisible(false);
+        new frmMenuPrincipal().setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
