@@ -8,6 +8,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     
     public frmMenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null); //la ventana se inicia en el medio
         setTitle("Agenda");
         registrar.setVisible(false);
         filtro.setVisible(false);
@@ -23,65 +24,51 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JButton();
-        btnFiltroContacto = new javax.swing.JButton();
+        jButtonRegistroContactos = new javax.swing.JButton();
+        jButtonReportes = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Agenda V 1.0");
+        jLabel1.setBackground(new java.awt.Color(102, 153, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setText("Bienvenidos..");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 390, 40));
 
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistroContactos.setBackground(new java.awt.Color(51, 255, 51));
+        jButtonRegistroContactos.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jButtonRegistroContactos.setText("Registrar Contacto Nuevo");
+        jButtonRegistroContactos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                jButtonRegistroContactosActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonRegistroContactos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, 100));
 
-        btnFiltroContacto.setText("Filtrar");
-        btnFiltroContacto.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReportes.setBackground(new java.awt.Color(51, 255, 204));
+        jButtonReportes.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jButtonReportes.setText("Reportes");
+        jButtonReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltroContactoActionPerformed(evt);
+                jButtonReportesActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 240, 100));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegistrar)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btnFiltroContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(198, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(btnRegistrar)
-                .addGap(18, 18, 18)
-                .addComponent(btnFiltroContacto)
-                .addContainerGap(271, Short.MAX_VALUE))
-        );
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/book-agenda-table-notes.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 554, 397));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        registrar.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    private void jButtonRegistroContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroContactosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistroContactosActionPerformed
 
-    private void btnFiltroContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltroContactoActionPerformed
-        filtro.setVisible(true);
-    }//GEN-LAST:event_btnFiltroContactoActionPerformed
+    private void jButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,8 +106,9 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFiltroContacto;
-    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton jButtonRegistroContactos;
+    private javax.swing.JButton jButtonReportes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
 }
