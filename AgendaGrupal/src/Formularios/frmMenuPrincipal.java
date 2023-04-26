@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
-/**
- *
- * @author burro
- */
+//Ventana principal del Programa
 public class frmMenuPrincipal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form frmMenuPrincipal
-     */
+    
+    frmRegistrar registrar = new frmRegistrar();
+    frmFormularioFiltro filtro = new frmFormularioFiltro();
+    
     public frmMenuPrincipal() {
         initComponents();
+        setTitle("Agenda");
+        registrar.setVisible(false);
+        filtro.setVisible(false);
     }
 
     /**
@@ -29,8 +24,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
-        btnVerContactos = new javax.swing.JButton();
-        btnEstadisticas = new javax.swing.JButton();
+        btnFiltroContacto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,9 +37,12 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnVerContactos.setText("Ver contactos");
-
-        btnEstadisticas.setText("Estadisticas");
+        btnFiltroContacto.setText("Filtrar");
+        btnFiltroContacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltroContactoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,9 +57,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVerContactos)
-                            .addComponent(btnEstadisticas))))
+                        .addComponent(btnFiltroContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(198, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -73,23 +68,20 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(btnRegistrar)
                 .addGap(18, 18, 18)
-                .addComponent(btnVerContactos)
-                .addGap(18, 18, 18)
-                .addComponent(btnEstadisticas)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addComponent(btnFiltroContacto)
+                .addContainerGap(271, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-        //Instanciar formulario a llamar
-        frmRegistrar verformularioRegistrar = new frmRegistrar(); 
- 
-        //Hacer visible el formulario
-        verformularioRegistrar.setVisible(true); 
+        registrar.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnFiltroContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltroContactoActionPerformed
+        filtro.setVisible(true);
+    }//GEN-LAST:event_btnFiltroContactoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,9 +119,8 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEstadisticas;
+    private javax.swing.JButton btnFiltroContacto;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnVerContactos;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

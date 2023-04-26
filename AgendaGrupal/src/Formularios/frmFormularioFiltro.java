@@ -1,11 +1,14 @@
 
-package agendagrupal;
+package Formularios;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.swing.JOptionPane;
+import java.io.FileWriter;
+import java.io.File;
+import java.util.Scanner;
+import java.io.BufferedReader;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -15,7 +18,9 @@ import javax.swing.table.TableRowSorter;
 public class frmFormularioFiltro extends javax.swing.JFrame {
     public frmFormularioFiltro() {
         initComponents();
+        model = (DefaultTableModel)this.jTable_datos.getModel();
     }
+DefaultTableModel model;
     TableRowSorter<DefaultTableModel> sorter;
 
     @SuppressWarnings("unchecked")
@@ -133,9 +138,7 @@ public class frmFormularioFiltro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegresarActionPerformed
-        System.exit(0);
-        /*this.setVisible(false);
-        new ventana().setVisible(true);*/
+        dispose();//Cerramos la ventana
     }//GEN-LAST:event_jButton_RegresarActionPerformed
 
     private void jButton_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LimpiarActionPerformed
