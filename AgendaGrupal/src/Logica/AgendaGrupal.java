@@ -13,7 +13,6 @@ public class AgendaGrupal {
         //Crear y hacer visible el formulario
         frmMenuPrincipal formulario = new frmMenuPrincipal();
         formulario.setVisible(true);
-        formulario.setLocationRelativeTo(null);
         
         Archivo datos = new Archivo();
         
