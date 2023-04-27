@@ -2,6 +2,7 @@ package Formularios;
 
 import javax.swing.JOptionPane;
 import Logica.Contacto;
+import java.text.SimpleDateFormat;
 import Persistencia.Archivo;
 
 public class frmRegistrar extends javax.swing.JFrame {
@@ -28,7 +29,6 @@ public class frmRegistrar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtFechaNacimiento = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -40,6 +40,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtFechaNacimiento = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,12 +69,6 @@ public class frmRegistrar extends javax.swing.JFrame {
         });
 
         jLabel6.setText("Fecha de nacimiento:");
-
-        txtFechaNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFechaNacimientoKeyTyped(evt);
-            }
-        });
 
         jLabel7.setText("Correo electronico:");
 
@@ -139,8 +134,8 @@ public class frmRegistrar extends javax.swing.JFrame {
                             .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                            .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(btnRegistrar)
@@ -172,10 +167,10 @@ public class frmRegistrar extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,12 +193,17 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        String FechaNacimiento;
         String genero = txtGenero.getText();
         String nombre = txtNombre.getText();
         String apellidopaterno = txtApellidoPaterno.getText();
         String apellidomaterno = txtApellidoMaterno.getText();
         String correo = txtCorreoElectronico.getText();
-        String fechanacimiento = txtFechaNacimiento.getText();
+        //Obteniendo fecha de nacimiento
+        SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");
+        FechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());
+        //String fechanacimiento = txtFechaNacimiento.getText();
+        
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
 
@@ -212,7 +212,7 @@ public class frmRegistrar extends javax.swing.JFrame {
         contacto.setApellidoPaterno(apellidopaterno);
         contacto.setApellidoMaterno(apellidomaterno);
         contacto.setCorreo(correo);
-        contacto.setFechaNacimiento(fechanacimiento);
+        contacto.setFechaNacimiento(FechaNacimiento);
         contacto.setGenero(direccion);
         contacto.setTelefono(telefono);
         
@@ -224,10 +224,6 @@ public class frmRegistrar extends javax.swing.JFrame {
         this.setVisible(false);
         new frmMenuPrincipal().setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void txtFechaNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaNacimientoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaNacimientoKeyTyped
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -337,7 +333,7 @@ public class frmRegistrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellidoPaterno;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtFechaNacimiento;
+    private com.toedter.calendar.JDateChooser txtFechaNacimiento;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;

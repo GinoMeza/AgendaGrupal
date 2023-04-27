@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import Logica.Contacto;
@@ -10,6 +5,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+
 
 public class Archivo {
 
@@ -32,6 +28,7 @@ public class Archivo {
     //Procedimientop para guardar datos en 1 vector
     public void guardar(Contacto contacto){
         vPrincipal.addElement(contacto);
+        //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
     }
     
     //Procedimiento para guardar en un archivo txt
