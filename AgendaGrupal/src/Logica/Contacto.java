@@ -1,8 +1,6 @@
 package Logica;
 
 public class Contacto {
-
-    String Genero;
     String Nombre;
     String ApellidoPaterno;
     String ApellidoMaterno;
@@ -10,11 +8,12 @@ public class Contacto {
     String FechaNacimiento;
     String Direccion;
     String Telefono;
+    boolean Genero;
 
     public Contacto(){
     }
     
-    public Contacto(String Genero,String Nombre,String ApellidoPaterno,String ApellidoMaterno,String Correo, String FechaNacimiento, String Direccion, String Telefono) {
+    public Contacto(boolean Genero,String Nombre,String ApellidoPaterno,String ApellidoMaterno,String Correo, String FechaNacimiento, String Direccion, String Telefono) {
         this.Genero = Genero;
         this.Nombre = Nombre;
         this.ApellidoPaterno = ApellidoPaterno;
@@ -50,11 +49,11 @@ public class Contacto {
         this.ApellidoMaterno = ApellidoMaterno;
     }
 
-    public String getGenero() {
+    public Boolean getGenero() {
         return Genero;
     }
 
-    public void setGenero(String Genero) {
+    public void setGenero(boolean Genero) {
         this.Genero = Genero;
     }
 
