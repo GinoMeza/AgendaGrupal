@@ -12,6 +12,7 @@ public class frmRegistrar extends javax.swing.JFrame {
     
     public frmRegistrar() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -43,12 +44,20 @@ public class frmRegistrar extends javax.swing.JFrame {
         txtFechaNacimiento = new com.toedter.calendar.JDateChooser();
         opcMasculino = new javax.swing.JRadioButton();
         opcFemenino = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
+        btnClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoElectronicoActionPerformed(evt);
+            }
+        });
+        txtCorreoElectronico.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoElectronicoKeyTyped(evt);
             }
         });
 
@@ -109,6 +118,12 @@ public class frmRegistrar extends javax.swing.JFrame {
 
         jLabel2.setText("Apellidos paterno:");
 
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Apellidos materno:");
 
         buttonGroup1.add(opcMasculino);
@@ -126,6 +141,16 @@ public class frmRegistrar extends javax.swing.JFrame {
                 opcFemeninoActionPerformed(evt);
             }
         });
+
+        jLabel9.setText("DNI");
+
+        txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniKeyTyped(evt);
+            }
+        });
+
+        btnClientes.setText("Ver clientes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,31 +171,42 @@ public class frmRegistrar extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(opcMasculino)
+                                .addGap(35, 35, 35)
+                                .addComponent(opcFemenino))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDni)
                                     .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtApellidoPaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(opcMasculino)
-                                .addGap(35, 35, 35)
-                                .addComponent(opcFemenino))))
+                                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(btnRegistrar)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnVolver)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel9)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(btnRegistrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(btnClientes)
+                .addGap(28, 28, 28)
+                .addComponent(btnVolver)
+                .addGap(52, 52, 52))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,8 +242,9 @@ public class frmRegistrar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
-                    .addComponent(btnVolver))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnVolver)
+                    .addComponent(btnClientes))
+                .addContainerGap())
         );
 
         pack();
@@ -218,48 +255,56 @@ public class frmRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        //Declaracion de variables
-        String fechaNacimiento,nombre,apellidoPaterno,apellidoMaterno, correo,direccion,telefono;
-        boolean genero; 
-        
-        //Obtener los datos llenados en los campos de texto
-        //String genero = txtGenero.getText();
-        nombre = txtNombre.getText();
-        apellidoPaterno = txtApellidoPaterno.getText();
-        apellidoMaterno = txtApellidoMaterno.getText();
-        correo = txtCorreoElectronico.getText();
-        direccion = txtDireccion.getText();
-        telefono = txtTelefono.getText();
-        
-        //Obteniendo fecha de nacimiento
-        SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");            // Cambiar el formato de las fechas
-        fechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());         // Obtener la fecha asignada
-        //String fechanacimiento = txtFechaNacimiento.getText();
-        
-        //Obteniendo el sexo marcado
-        if(opcMasculino.isSelected()){
-            genero = true;        // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
-            contacto.setGenero(genero);         //Mandar al objeto declarado la opcion seleccionada
-        }else{
-            if(opcFemenino.isSelected()){
-                genero = false;       // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
+        try{
+            //Declaracion de variables
+            String fechaNacimiento,nombre,apellidoPaterno,apellidoMaterno, correo,direccion,telefono;
+            boolean genero; 
+
+            //Obtener los datos llenados en los campos de texto
+            nombre = txtNombre.getText();
+            apellidoPaterno = txtApellidoPaterno.getText();
+            apellidoMaterno = txtApellidoMaterno.getText();
+            correo = txtCorreoElectronico.getText();
+            direccion = txtDireccion.getText();
+            telefono = txtTelefono.getText();
+
+            //Obteniendo fecha de nacimiento
+            SimpleDateFormat dFormat=new SimpleDateFormat("dd-mm-yyyy");            // Cambiar el formato de las fechas
+            fechaNacimiento = dFormat.format(txtFechaNacimiento.getDate());         // Obtener la fecha asignada
+
+            //Obteniendo el sexo marcado
+            if(opcMasculino.isSelected()){
+                genero = true;        // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
                 contacto.setGenero(genero);         //Mandar al objeto declarado la opcion seleccionada
             }else{
-                JOptionPane.showMessageDialog(this,"Selección de sexo invalida.");
+                if(opcFemenino.isSelected()){
+                    genero = false;       // Dependiendo de la opcion marcada se pasa un valor booleando de true = masculino
+                    contacto.setGenero(genero);         //Mandar al objeto declarado la opcion seleccionada
+                }else{
+                    JOptionPane.showMessageDialog(this,"Selección de sexo invalida.");
+                }
             }
+
+            //Mandar al objeto declarado la opcion seleccionada
+            contacto.setNombre(nombre);
+            contacto.setApellidoPaterno(apellidoPaterno);
+            contacto.setApellidoMaterno(apellidoMaterno);
+            contacto.setCorreo(correo);
+            contacto.setFechaNacimiento(fechaNacimiento);
+            contacto.setTelefono(telefono);
+            // Guardar en el archivo
+            archivo.guardar(contacto);
+            archivo.guardarArchivo(contacto);
+            //Mandar mensaje de exito
+            JOptionPane.showMessageDialog(this, "Registro exitoso!!");
+            //Reiniciar ventana
+            this.setVisible(false);
+            new frmRegistrar().setVisible(true);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Campos vacios, intente de nuevo!");
         }
+
         
-        //Mandar al objeto declarado la opcion seleccionada
-        contacto.setNombre(nombre);
-        contacto.setApellidoPaterno(apellidoPaterno);
-        contacto.setApellidoMaterno(apellidoMaterno);
-        contacto.setCorreo(correo);
-        contacto.setFechaNacimiento(fechaNacimiento);
-        //contacto.setGenero(direccion);
-        contacto.setTelefono(telefono);
-        
-        archivo.guardar(contacto);
-        archivo.guardarArchivo(contacto);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -278,7 +323,6 @@ public class frmRegistrar extends javax.swing.JFrame {
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
         boolean Espacio = key == 32;                        //Declaración de espacio de acuerdo al ascii
-        boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
 
         if(!(Minusculas || Mayusculas || Espacio)){
             //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
@@ -291,10 +335,9 @@ public class frmRegistrar extends javax.swing.JFrame {
 
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
-        boolean Espacio = key == 32;
+        boolean Espacio = key == 32;                        //Declaración de espacio de acuerdo al ascii
 
         if(!(Minusculas || Mayusculas || Espacio)){
-            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
         }
     }//GEN-LAST:event_txtApellidoPaternoKeyTyped
@@ -304,25 +347,15 @@ public class frmRegistrar extends javax.swing.JFrame {
 
         boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
         boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
-        boolean Espacio = key == 32;
+        boolean Espacio = key == 32;                        //Declaración de espacio de acuerdo al ascii
 
         if(!(Minusculas || Mayusculas || Espacio)){
-            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
             evt.consume();                //Este comando evita que se ingrese el numero
         }
     }//GEN-LAST:event_txtApellidoMaternoKeyTyped
 
     private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
-        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
-
-        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
-        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
-        boolean Espacio = key == 32;
-
-        if(!(Minusculas || Mayusculas || Espacio)){
-            //JOptionPane.showMessageDialog(this,"No se pone un número en nombre.");      //Lanzar un mensaje donde se advierta que no van números
-            evt.consume();                //Este comando evita que se ingrese el numero
-        }
+        
     }//GEN-LAST:event_txtDireccionKeyTyped
 
     private void opcMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcMasculinoActionPerformed
@@ -332,6 +365,38 @@ public class frmRegistrar extends javax.swing.JFrame {
     private void opcFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcFemeninoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opcFemeninoActionPerformed
+
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
+        
+        if(!(Numeros)){
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtDniKeyTyped
+
+    private void txtCorreoElectronicoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoElectronicoKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+
+        boolean Mayusculas = key >= 65 && key <= 90;        //Declaración de mayusculas de acuerdo al ascii
+        boolean Minusculas = key >= 97 && key <= 122;       //Declaración de minusculas de acuerdo al ascii
+        boolean Espacio = key == 32;                        //Declaración de espacio de acuerdo al ascii
+        boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
+
+        if(!(Minusculas || Mayusculas || Numeros)){
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtCorreoElectronicoKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        boolean Numeros = key >= 48 && key <= 57;           //Declaración de numeros de acuerdo al ascii
+
+        if(!(Numeros)){
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtTelefonoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -369,6 +434,7 @@ public class frmRegistrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -380,12 +446,14 @@ public class frmRegistrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton opcFemenino;
     private javax.swing.JRadioButton opcMasculino;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDni;
     private com.toedter.calendar.JDateChooser txtFechaNacimiento;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;

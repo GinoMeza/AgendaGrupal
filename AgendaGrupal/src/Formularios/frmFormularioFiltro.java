@@ -21,6 +21,7 @@ import javax.swing.table.TableRowSorter;
 public class frmFormularioFiltro extends javax.swing.JFrame {
     public frmFormularioFiltro() {
         initComponents();
+        setLocationRelativeTo(null);
         model = (DefaultTableModel)this.jTable_datos.getModel();
     }
 DefaultTableModel model;

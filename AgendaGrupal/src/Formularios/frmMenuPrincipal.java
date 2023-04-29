@@ -12,6 +12,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         setTitle("Agenda");
         registrar.setVisible(false);
         filtro.setVisible(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,13 +39,13 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
         jButtonRegistroContactos.setBackground(new java.awt.Color(51, 255, 51));
         jButtonRegistroContactos.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jButtonRegistroContactos.setText("Registrar Contacto Nuevo");
+        jButtonRegistroContactos.setText("Registrar Cliente");
         jButtonRegistroContactos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistroContactosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRegistroContactos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, 100));
+        getContentPane().add(jButtonRegistroContactos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 240, 80));
 
         jButtonReportes.setBackground(new java.awt.Color(51, 255, 204));
         jButtonReportes.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -54,10 +55,10 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
                 jButtonReportesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 240, 100));
+        getContentPane().add(jButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 240, 70));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/book-agenda-table-notes.jpg"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 554, 397));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 554, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
