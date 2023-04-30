@@ -1,6 +1,6 @@
 package Formularios;
 
-import Conexion.cConnection;
+import persistencia.cConnection;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
