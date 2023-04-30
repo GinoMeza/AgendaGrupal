@@ -63,17 +63,6 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRegistroContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroContactosActionPerformed
-        // esta parte envia a los registros
-        this.setVisible(false);
-        new frmRegistrar().setVisible(true);
-    }//GEN-LAST:event_jButtonRegistroContactosActionPerformed
-
-    private void jButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportesActionPerformed
-        // esta parte envia a los reportes
-        this.setVisible(false);
-        new frmFormularioFiltro().setVisible(true);
-    }//GEN-LAST:event_jButtonReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,9 +100,16 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonRegistroContactos;
-    private javax.swing.JButton jButtonReportes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelFondo;
+    private void jButtonRegistroContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroContactosActionPerformed
+        // esta parte envia a los registros
+        this.setVisible(false);
+        new frmRegistrar().setVisible(true);
+    }//GEN-LAST:event_jButtonRegistroContactosActionPerformed
+
+    private void jButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportesActionPerformed
+        // esta parte envia a los reportes
+        this.setVisible(false);
+        new frmFormularioFiltro().setVisible(true);
+    }//GEN-LAST:event_jButtonReportesActionPerformed
     // End of variables declaration//GEN-END:variables
 }

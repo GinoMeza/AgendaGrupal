@@ -1,4 +1,4 @@
-package Conexion;
+package persistencia;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -16,7 +16,7 @@ public class cConnection {
     public cConnection(){ //para poder conectar nuestra base de datos
         try{
             //Esta url se tiene que cambiar, excepto el nombre del archivo
-            String rutaDB = "C:\\Users\\lisse\\ProgramasGit\\AgendaGrupal\\AgendaGrupal\\Datos.accdb"; //ruta del archivo
+            String rutaDB = "Datos.accdb"; //ruta del archivo
             String url = "jdbc:ucanaccess://"+rutaDB; //Conexion puente JDBC y Access
             conectar = DriverManager.getConnection(url); //Conectar con nuestra base de datos
             sentencia = conectar.createStatement(); //ayuda a utilizar la sentencia sql

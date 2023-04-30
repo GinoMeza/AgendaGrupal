@@ -1,5 +1,6 @@
-package Conexion;
+package Formularios;
 
+import persistencia.cConnection;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -8,12 +9,12 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class DatosPersonales extends javax.swing.JFrame {
+public class frmClientes extends javax.swing.JFrame {
 
     /**
      * Creates new form DatosPersonales
      */
-    public DatosPersonales() {
+    public frmClientes() {
         initComponents();
         setLocationRelativeTo(null); //Para que aparezca en centro de la pantalla
         MostrarDatos(); //llama la funcion MostrarDatos
@@ -42,6 +43,7 @@ public class DatosPersonales extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
+        btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +91,13 @@ public class DatosPersonales extends javax.swing.JFrame {
 
         jLabel4.setText("ID");
 
+        btn_regresar.setText("regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,7 +123,9 @@ public class DatosPersonales extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEliminar)
                                 .addGap(37, 37, 37)
-                                .addComponent(btnModificar))
+                                .addComponent(btnModificar)
+                                .addGap(38, 38, 38)
+                                .addComponent(btn_regresar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -150,7 +161,8 @@ public class DatosPersonales extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnModificar))
+                    .addComponent(btnModificar)
+                    .addComponent(btn_regresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -275,6 +287,11 @@ public class DatosPersonales extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        this.setVisible(false);
+        new frmMenuPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarActionPerformed
     
     public void MostrarDatos(){ //Para que no edites los nombre de cada columna de la tabla, si no tienes pereza, editalo tu mismo
         DefaultTableModel MiTabla = (DefaultTableModel)tblDatos.getModel();
@@ -330,20 +347,21 @@ public class DatosPersonales extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosPersonales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosPersonales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosPersonales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosPersonales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DatosPersonales().setVisible(true);
+                new frmClientes().setVisible(true);
             }
         });
     }
@@ -352,6 +370,7 @@ public class DatosPersonales extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
