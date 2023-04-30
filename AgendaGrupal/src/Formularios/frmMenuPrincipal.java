@@ -99,7 +99,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
        this.setVisible(false);
-        new frmClientes().setVisible(true);
+        new frmClientes().setVisible(true);//envia a frame de clientes
     }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
