@@ -124,7 +124,7 @@ public class frmClientes extends javax.swing.JFrame {
                                 .addComponent(btnEliminar)
                                 .addGap(37, 37, 37)
                                 .addComponent(btnModificar)
-                                .addGap(38, 38, 38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_regresar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
