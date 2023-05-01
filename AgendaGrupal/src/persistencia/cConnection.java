@@ -12,8 +12,6 @@ public class cConnection {
     Connection conectar = null; //variable "conectar", para conectar
     Statement sentencia = null; //variable "sentencia", para administrar nuestra sentencia sql
     ResultSet resultado = null; //variable "resultado", para mostrar el resultado
-    private String usr = ""; 
-    private String pswd = ""; 
     
     public cConnection(){ //para poder conectar nuestra base de datos
         try{
