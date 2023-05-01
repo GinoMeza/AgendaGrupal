@@ -97,6 +97,12 @@ public class frmProductos extends javax.swing.JFrame {
 
         jLabel4.setText("Codigo producto");
 
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
+
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,6 +366,16 @@ public class frmProductos extends javax.swing.JFrame {
             evt.consume();                //Este comando evita que se ingrese el numero
         }
     }//GEN-LAST:event_txtStockKeyTyped
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();                         //Obtener el codigo ascii del caracter ingresado
+        boolean Numeros = key >= 48 && key <= 57;           //DeclaraciÃ³n de numeros de acuerdo al ascii
+        
+        if(!(Numeros)){
+            evt.consume();                //Este comando evita que se ingrese el numero
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
     
     /**
      * @param args the command line arguments
