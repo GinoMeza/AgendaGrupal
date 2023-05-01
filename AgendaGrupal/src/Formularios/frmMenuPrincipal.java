@@ -16,6 +16,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
      */
     public frmMenuPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);                //Centrado de un formulario
     }
 
     /**
@@ -109,7 +110,7 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        new frmProductos().setVisible(true);        //Abrir formulario de productos
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
