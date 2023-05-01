@@ -4,14 +4,9 @@ package Formularios;
 
 public class frmMenuPrincipal extends javax.swing.JFrame {
     
-    frmRegistrar registrar = new frmRegistrar();
-    frmFormularioFiltro filtro = new frmFormularioFiltro();
-    
     public frmMenuPrincipal() {
         initComponents();
         setTitle("Agenda");
-        registrar.setVisible(false);
-        filtro.setVisible(false);
         setLocationRelativeTo(null);
     }
 
@@ -99,17 +94,17 @@ public class frmMenuPrincipal extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private void jButtonRegistroContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroContactosActionPerformed
         // esta parte envia a los registros
         this.setVisible(false);
-        new frmRegistrar().setVisible(true);
+        //new frmRegistrar().setVisible(true);
     }//GEN-LAST:event_jButtonRegistroContactosActionPerformed
 
     private void jButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReportesActionPerformed
         // esta parte envia a los reportes
         this.setVisible(false);
-        new frmFormularioFiltro().setVisible(true);
+        //new frmFormularioFiltro().setVisible(true);
     }//GEN-LAST:event_jButtonReportesActionPerformed
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

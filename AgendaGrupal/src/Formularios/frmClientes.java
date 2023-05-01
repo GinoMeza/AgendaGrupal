@@ -1,6 +1,5 @@
 package Formularios;
 
-import persistencia.cConnection;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -8,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import persistencia.cConnection;
+
 
 public class frmClientes extends javax.swing.JFrame {
 
