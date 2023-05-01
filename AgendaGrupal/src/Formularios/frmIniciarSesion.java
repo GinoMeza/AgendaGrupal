@@ -124,14 +124,14 @@ private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//
                 if(rs.getString(1) == null)
                         band = 0;  // no coincide user o passw
                 else
-                    band = 1;
+                    band = 1;//user y passwor coinciden
             }
         }
-        catch (SQLException ex){
+        catch (SQLException ex){//para cuando ocurra un error de acceso a la base de datos
             JOptionPane.showConfirmDialog(null, "ERROR DE ACCESO"+ex);
         }
      
-       if (band == 1){
+       if (band == 1){//apertura de el menpu principal cuando la coincidencia de usuario y contraseña es correcta
             try {
                  frmMenuPrincipal ventanaSplash = new frmMenuPrincipal();
                  ventanaSplash.setVisible(true);
@@ -143,11 +143,11 @@ private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//
                 e.printStackTrace();
             }
       }
-      else{        
+      else{ // mensaje para cuando el usuario y contraseña que se ingresen no existan en la base de datos
             JOptionPane.showMessageDialog(null,"ERROR. Vuelva a Ingresar");
             this.setVisible(rootPaneCheckingEnabled);   // muestra la ventana actual
-            this.txtUser.setText("");
-            this.txtPassw.setText("");
+            this.txtUser.setText("");//limpia el suario
+            this.txtPassw.setText(""); //limpia la contraseña
             this.txtUser.requestFocus();
     }
 }//GEN-LAST:event_btnIniciarSesionActionPerformed
