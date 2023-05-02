@@ -205,18 +205,18 @@ public class frmProductos extends javax.swing.JFrame {
             DefaultTableModel dTabla = (DefaultTableModel)tblProductos.getModel();
             cConnection conectando = new cConnection(); //llama la clase cConnection
             conex = conectando.getConnection();//retorna conexion
-            String Registro[] = new String[4]; //aca el numero lo modificas segun la cantidad de columnas
-            String SQL = "Select * from productos"; //sentencia sql para llamar los registros
-            Statement sentencia = conex.createStatement(); //crea la sentencia sql
-            ResultSet rst = sentencia.executeQuery(SQL); //ejecuta la consulta de la sentencia sql
+            String Registro[] = new String[4];                                              //Numero de columnas
+            String SQL = "Select * from productos";                                         //Consultar datos de tabla productos
+            Statement sentencia = conex.createStatement();                                  //Sentencia SQL
+            ResultSet rst = sentencia.executeQuery(SQL);                                    //Ejecutar sentencia
             while(rst.next()){
-                Registro[0] = rst.getString("Id"); //el numero y el nombre que esta en tu BD, en este caso access, se comienza desde cero
-                Registro[1] = rst.getString("Nombre"); 
-                Registro[2] = rst.getString("Apellido");
-                Registro[3] = rst.getString("Correo");
-                dTabla.addRow(Registro); //Agrega a cada columna
+                Registro[0] = rst.getString("Codigo");                                      
+                Registro[1] = rst.getString("Nombre producto"); 
+                Registro[2] = rst.getString("Stock");
+                Registro[3] = rst.getString("Precio");
+                dTabla.addRow(Registro);                                                    //Agrega a cada columna
             }
-            tblProductos.setModel(dTabla); //para llamar nuestra tabla
+            tblProductos.setModel(dTabla);                                                  //Llenar datos a la tabla
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,"Se ha producido un error al cargar los datos - " + e);//mensaje de error y el problema a resolver
         }
