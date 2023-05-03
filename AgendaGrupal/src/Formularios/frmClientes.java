@@ -1,11 +1,12 @@
 package Formularios;
 
+import java.awt.HeadlessException;
 import persistencia.cConnection;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,35 +31,62 @@ public class frmClientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtApellidoM = new javax.swing.JTextField();
+        txtFechaN = new javax.swing.JTextField();
+        txtTelef = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtid = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
+        txtApellidoP = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
         btn_regresar = new javax.swing.JButton();
+
+        jTextField4.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel6.setText("Fecha de nacimiento");
+
+        jLabel8.setText("Dirección");
+
+        jLabel7.setText("Telefono");
+
+        jLabel5.setText("Apellido Materno");
+
         jLabel1.setText("Nombre");
 
-        jLabel2.setText("Apellido");
+        jLabel2.setText("Apellido Paterno");
 
         jLabel3.setText("Correo");
+
+        jLabel4.setText("ID");
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
             }
         ));
         tblDatos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,8 +117,6 @@ public class frmClientes extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("ID");
-
         btn_regresar.setText("regresar");
         btn_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,65 +131,92 @@ public class frmClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtid, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                .addComponent(txtNombre))
+                            .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnGuardar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminar)
-                                .addGap(37, 37, 37)
-                                .addComponent(btnModificar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_regresar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtApellido)
-                                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8))
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCorreo)
+                                    .addComponent(txtFechaN)
+                                    .addComponent(txtDireccion)
+                                    .addComponent(txtTelef, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
+                            .addComponent(jLabel7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnGuardar)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnEliminar)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_regresar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(27, 39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(txtFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel4))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtDireccion)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addComponent(txtTelef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar)
                     .addComponent(btn_regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -187,12 +240,16 @@ public class frmClientes extends javax.swing.JFrame {
                     Statement st = con.createStatement(); //crear sentencia sql
                     
                     //Sentencia SQL para ingresar datos
-                    String SQLGuardar = "INSERT INTO datos(Id,Nombre,Apellido,Correo) VALUES(?,?,?,?)";
+                    String SQLGuardar = "INSERT INTO datos(Id,Nombre,Apellido_Paterno,Apellido_Materno,Fecha_nacimiento,Correo,Direccion,Telefono) VALUES(?,?,?,?,?,?,?,?)";
                     PreparedStatement pst = con.prepareCall(SQLGuardar); //llama a SQLGuardar
                     pst.setInt(1,Integer.parseInt(txtid.getText())); //guarda id, siempre comienza desde 1
                     pst.setString(2,txtNombre.getText()); //guarda nombre
-                    pst.setString(3,txtApellido.getText()); //guarda apellido
-                    pst.setString(4,txtCorreo.getText()); //guarda correo
+                    pst.setString(3,txtApellidoP.getText()); //guarda apellido paterno
+                    pst.setString(4,txtApellidoM.getText()); //guarda apellido materno
+                    pst.setString(5,txtFechaN.getText()); //guarda fecha de nacimiento
+                    pst.setString(6,txtCorreo.getText()); //guarda correo
+                    pst.setString(7,txtDireccion.getText()); //guarda direccion
+                    pst.setString(8,txtTelef.getText()); //guarda telefono
                     int n = pst.executeUpdate(); //ejecuta sentencia SQL
                     pst.close(); //para cerrar prepareStatement
                     
@@ -202,7 +259,7 @@ public class frmClientes extends javax.swing.JFrame {
                         MostrarDatos(); //llama funcion mostrar datos de encabezado
                         MostrarRegistroTabla(); //llama funcion de mostrar datos tabla
                     }
-                } catch(Exception e){
+                } catch(SQLException | NumberFormatException | HeadlessException e){
                     JOptionPane.showMessageDialog(null, "Error al guardar los datos - " + e); //Muestra mensaje de error y el error correspondiente
                 }
             }
@@ -235,7 +292,7 @@ public class frmClientes extends javax.swing.JFrame {
                         MostrarDatos(); //llama la funcion mostrar datos de encabezado
                         MostrarRegistroTabla(); //llama funcion de mostrar registros en la tabla
                     }
-                } catch(Exception e){
+                } catch(SQLException | NumberFormatException | HeadlessException e){
                     JOptionPane.showMessageDialog(this,"Ha ocurrido un error al eliminar el registro");
                 }
             }
@@ -249,8 +306,12 @@ public class frmClientes extends javax.swing.JFrame {
             int fila = tblDatos.getSelectedRow();
             this.txtid.setText(tblDatos.getValueAt(fila, 0).toString());
             this.txtNombre.setText(tblDatos.getValueAt(fila, 1).toString());
-            this.txtApellido.setText(tblDatos.getValueAt(fila, 2).toString());
-            this.txtCorreo.setText(tblDatos.getValueAt(fila, 3).toString());
+            this.txtApellidoP.setText(tblDatos.getValueAt(fila, 2).toString());
+            this.txtApellidoM.setText(tblDatos.getValueAt(fila, 3).toString());
+            this.txtFechaN.setText(tblDatos.getValueAt(fila, 4).toString());
+            this.txtCorreo.setText(tblDatos.getValueAt(fila, 5).toString());
+            this.txtDireccion.setText(tblDatos.getValueAt(fila, 6).toString());
+            this.txtTelef.setText(tblDatos.getValueAt(fila, 7).toString());
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error al seleccionar los datos - "+ e);
         }
@@ -267,12 +328,16 @@ public class frmClientes extends javax.swing.JFrame {
                 con2 = conectando.getConnection();//retorna conexion
                 Statement st = con2.createStatement(); //crea una sentencia sql
                 //Sentencia sql para poder modificar la fila seleccionada
-                String SQLModificar = "UPDATE datos SET Nombre = ?,Apellido = ?,Correo = ? WHERE Id = ?";
+                String SQLModificar = "UPDATE datos SET Nombre = ?,Apellido_Paterno = ?,Apellido_Materno = ?,Fecha_nacimiento = ?,Correo = ?,Direccion = ?,Telefono = ? WHERE Id = ?";
                 PreparedStatement pst = con2.prepareStatement(SQLModificar); //llamamos nuestra sentencia sql
-                pst.setInt(4,Integer.parseInt(txtid.getText())); //guarda lo del campo txtid a la base de datos, el 4 es de la cantidad de columnas
+                pst.setInt(8,Integer.parseInt(txtid.getText())); //guarda lo del campo txtid a la base de datos, el 4 es de la cantidad de columnas
                 pst.setString(1,txtNombre.getText()); //guarda lo del campo txtNombre a la base de datos
-                pst.setString(2,txtApellido.getText()); //guarda lo del campo txtApellido a la base de datos
-                pst.setString(3,txtCorreo.getText()); //guarda lo del campo txtCorreo a la base de datos
+                pst.setString(2,txtApellidoP.getText()); //guarda lo del campo txtApellido a la base de datos
+                pst.setString(3,txtApellidoM.getText()); //guarda lo del campo txtCorreo a la base de datos
+                pst.setString(4,txtFechaN.getText()); //guarda lo del campo txtNombre a la base de datos
+                pst.setString(5,txtCorreo.getText()); //guarda lo del campo txtApellido a la base de datos
+                pst.setString(6,txtDireccion.getText()); //guarda lo del campo txtCorreo a la base de datos
+                pst.setString(7,txtTelef.getText()); //guarda lo del campo txtCorreo a la base de datos
                 int s = pst.executeUpdate();
                 pst.close();
                 
@@ -282,7 +347,7 @@ public class frmClientes extends javax.swing.JFrame {
                     MostrarDatos(); //para mostrar los nombres de cada columna
                     MostrarRegistroTabla(); //para mostrar los datos en la tabla
                 }
-            } catch(Exception e){
+            } catch(SQLException | NumberFormatException | HeadlessException e){
                 JOptionPane.showMessageDialog(this,"Error al actualizar los datos - "+ e); //mensaje de error y el problema;
             }
         }
@@ -292,10 +357,14 @@ public class frmClientes extends javax.swing.JFrame {
         this.setVisible(false);
         new frmMenuPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
     
     public void MostrarDatos(){ //Para que no edites los nombre de cada columna de la tabla, si no tienes pereza, editalo tu mismo
         DefaultTableModel MiTabla = (DefaultTableModel)tblDatos.getModel();
-        String EncabezadoTabla[]={"ID","Nombre","Apellido","Correo"}; //para cambiar los nombres de la tabla que estan por defecto
+        String EncabezadoTabla[]={"ID","Nombre","Apellido Paterno","Apellido Materno","Fecha de nacimiento","Correo","dirección","Telefono"}; //para cambiar los nombres de la tabla que estan por defecto
         MiTabla = new DefaultTableModel(null,EncabezadoTabla);
         tblDatos.setModel(MiTabla);
     }
@@ -306,15 +375,19 @@ public class frmClientes extends javax.swing.JFrame {
             DefaultTableModel dTabla = (DefaultTableModel)tblDatos.getModel();
             cConnection conectando = new cConnection(); //llama la clase cConnection
             conex = conectando.getConnection();//retorna conexion
-            String Registro[] = new String[4]; //aca el numero lo modificas segun la cantidad de columnas
+            String Registro[] = new String[8]; //aca el numero lo modificas segun la cantidad de columnas
             String SQL = "Select * from datos"; //sentencia sql para llamar los registros
             Statement sentencia = conex.createStatement(); //crea la sentencia sql
             ResultSet rst = sentencia.executeQuery(SQL); //ejecuta la consulta de la sentencia sql
             while(rst.next()){
                 Registro[0] = rst.getString("Id"); //el numero y el nombre que esta en tu BD, en este caso access, se comienza desde cero
                 Registro[1] = rst.getString("Nombre"); 
-                Registro[2] = rst.getString("Apellido");
-                Registro[3] = rst.getString("Correo");
+                Registro[2] = rst.getString("Apellido_Paterno");
+                Registro[3] = rst.getString("Apellido_Materno");
+                Registro[4] = rst.getString("Fecha_nacimiento"); 
+                Registro[5] = rst.getString("Correo");
+                Registro[6] = rst.getString("Direccion");
+                Registro[7] = rst.getString("Telefono");
                 dTabla.addRow(Registro); //Agrega a cada columna
             }
             tblDatos.setModel(dTabla); //para llamar nuestra tabla
@@ -325,8 +398,12 @@ public class frmClientes extends javax.swing.JFrame {
     public void Limpiar(){ //Para que se limpia donde escribimos
         this.txtid.setText("");
         this.txtNombre.setText("");
-        this.txtApellido.setText("");
+        this.txtApellidoP.setText("");
         this.txtCorreo.setText("");
+        this.txtApellidoM.setText("");
+        this.txtDireccion.setText("");
+        this.txtFechaN.setText("");
+        this.txtTelef.setText("");
         this.txtid.requestFocus();        
     }
     
@@ -375,11 +452,20 @@ public class frmClientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblDatos;
-    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtApellidoM;
+    private javax.swing.JTextField txtApellidoP;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtFechaN;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelef;
     private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }
